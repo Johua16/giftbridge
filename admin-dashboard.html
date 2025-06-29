@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Dashboard – GiftBridge</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="admin-dashboard">
+
+  <header class="navbar">
+    <div class="logo">
+      <a href="index.html"><img src="images/logo.png" alt="GiftBridge Logo" /></a>
+    </div>
+    <nav class="admin-nav">
+      <ul>
+        <li><a href="#dashboard">Dashboard</a></li>
+        <li><a href="#vendors">Vendors</a></li>
+        <li><a href="#orders">Orders</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#settings">Settings</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="dashboard" class="admin-section">
+    <h2>Admin Overview</h2>
+    <div class="admin-cards">
+      <div class="card"><h3>Total Orders</h3><p>245</p></div>
+      <div class="card"><h3>Registered Vendors</h3><p>58</p></div>
+      <div class="card"><h3>Products Listed</h3><p>342</p></div>
+      <div class="card"><h3>Pending Approvals</h3><p>6</p></div>
+    </div>
+  </section>
+
+  <section id="vendors" class="admin-section">
+    <h2>Vendor Applications</h2>
+    <table>
+      <thead>
+        <tr><th>Business Name</th><th>Email</th><th>Status</th><th>Action</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Cake & Crumbs</td><td>cakeshop@example.com</td><td>Pending</td><td><button>Approve</button></td></tr>
+        <tr><td>Smart Gadgets</td><td>gadgets@example.com</td><td>Approved</td><td><button disabled>Approved</button></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="orders" class="admin-section">
+    <h2>Recent Orders</h2>
+    <table>
+      <thead>
+        <tr><th>Order ID</th><th>Customer</th><th>Product</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>#1201</td><td>Joshua D.</td><td>Chocolate Cake</td><td>Delivered</td></tr>
+        <tr><td>#1202</td><td>Ada O.</td><td>iPhone 12</td><td>In Transit</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="settings" class="admin-section">
+    <h2>Admin Settings</h2>
+    <p>Account settings and preferences coming soon.</p>
+  </section>
+
+</body>
+</html>

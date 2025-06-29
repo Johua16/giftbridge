@@ -1,0 +1,118 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Checkout – GiftBridge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="navbar">
+  <div class="nav-container">
+    <h1 class="logo">💳 GiftBridge Checkout</h1>
+    <a href="index.html" class="cta-button">← Back to Home</a>
+  </div>
+</header>
+<section class="checkout-section">
+  <h2>Secure Payment</h2>
+  <form id="paymentForm" class="checkout-form">
+    <label for="customer-name">Full Name</label>
+    <input type="text" id="customer-name" required />
+
+    <label for="customer-email">Email Address</label>
+    <input type="email" id="customer-email" required />
+
+    <label for="address">Delivery Address</label>
+    <textarea id="address" rows="4" required></textarea>
+
+    <label for="amount">Amount (₦)</label>
+    <input type="number" id="amount" required placeholder="e.g. 5000" />
+
+    <label for="payment-method">Select Payment Method</label>
+    <select id="payment-method" required>
+      <option value="">-- Select --</option>
+      <option value="card">Credit / Debit Card</option>
+      <option value="bank">Bank Transfer</option>
+      <option value="paypal">PayPal</option>
+    </select>
+
+    <button type="submit" class="cta-button">Complete Payment</button>
+  </form>
+</section>
+       
+    <script src="https://checkout.flutterwave.com/v3.js"></script>
+<script>
+  const paymentForm = document.getElementById("paymentForm");
+
+  paymentForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("customer-name").value;
+    const email = document.getElementById("customer-email").value;
+    const amount = document.getElementById("amount").value;
+    const address = document.getElementById("address").value;
+
+    // Save to localStorage
+    localStorage.setItem("orderName", name);
+    localStorage.setItem("orderEmail", email);
+    localStorage.setItem("orderAmount", amount);
+    localStorage.setItem("orderAddress", address);
+
+    FlutterwaveCheckout({
+      public_key: "FLWPUBK_TEST-7964603e8749ff67285548c0947beb6e-X",
+      tx_ref: "GBRIDGE-" + Date.now(),
+      amount: amount,
+      currency: "NGN",
+      payment_options: "card, banktransfer, paypal",
+      customer: {
+        email: email,
+        name: name,
+      },
+      callback: function (data) {
+  console.log("Payment complete!", data);
+
+  // Save order to localStorage (already in your code)
+  // ...
+
+  // Send order to Google Sheets
+  sendToGoogleForm(name, email, address, amount, "Flutterwave");
+
+  // Redirect to success page
+  window.location.href = "success.html";
+},
+      customizations: {
+        title: "GiftBridge Payment",
+        description: "Secure checkout for your gift order",
+        logo: "https://delematthewsjoshua.wixsite.com/giftbridge/_files/ugd/your-logo.png",
+      },
+    });
+  });
+</script>
+<script>
+  function sendToGoogleForm(name, email, address, amount, paymentMethod) {
+    const formURL = "https://docs.google.com/forms/d/e/1FAIpQLSfxvSGCci3VW903DVFVNxBE04Bb2M5M9Bph4zwjpclESLkf_A/formResponse";
+
+    const formData = new FormData();
+    formData.append("entry.962785505", name);           // Full Name
+    formData.append("entry.2073122086", email);          // Email
+    formData.append("entry.866419147", address);         // Address
+    formData.append("entry.408140039", amount);          // Amount
+    formData.append("entry.1327887494", paymentMethod);  // Payment Method
+
+    fetch(formURL, {
+      method: "POST",
+      mode: "no-cors",
+      body: formData,
+    })
+    .then(() => {
+      console.log("✅ Order sent to Google Sheet");
+    })
+    .catch((err) => {
+      console.error("❌ Failed to send order to Google Sheet", err);
+    });
+  }
+</script>
+
+</body>
+</html>

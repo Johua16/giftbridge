@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GiftBridge – Send Love to Nigeria</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- AOS Animate On Scroll CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+  <script defer src="script.js"></script>
+
+<!-- Firebase App (Core) -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+<!-- Firebase Auth -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyDIVnAnK5IwNydDQrykzjT5DYe8xp7glD0",
+    authDomain: "giftbridge.firebaseapp.com",
+    projectId: "giftbridge",
+    storageBucket: "giftbridge.firebasestorage.app",
+    messagingSenderId: "957989956307",
+    appId: "1:957989956307:web:4c804224151683bffb0226"
+  };
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+</head>
+<body>
+
+  <!-- 🔝 NAVBAR -->
+  <header class="navbar">
+  <div class="logo">
+    <a href="index.html"><img src="images/logo.png" alt="GiftBridge Logo" /></a>
+  </div>
+  <nav class="nav-links">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#categories">Categories</a></li>
+      <li><a href="#why">Why GiftBridge</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="vendor.html">Become a Vendor</a></li>
+      <li><a href="user-login.html">Sign In</a></li>
+      <!-- Optional: only shown to you -->
+      <li><a href="admin-dashboard.html">Admin</a></li>
+    </ul>
+        <p id="greeting"></p>
+
+<script>
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      document.getElementById('greeting').innerText = `Hello, ${user.displayName || 'User'} 👋`;
+    }
+  });
+</script>
+  </nav>
+</header>
+
+  <!-- 🎯 HERO SECTION -->
+  <section class="hero" id="hero" data-aos="fade-up">
+    <div class="hero-content">
+      <h1>Send Love from Anywhere to Nigeria</h1>
+      <p>Gifts delivered with care, from your heart to their doorstep.</p>
+      <a href="#categories" class="cta-button">Shop Now</a>
+    </div>
+  </section>
+
+  <!-- 🛍️ GIFT CATEGORIES -->
+  <section class="categories" id="categories" data-aos="fade-up">
+    <h2>Shop by Category</h2>
+    <div class="category-grid">
+      <a href="store/cakes.html" class="category-card" data-aos="zoom-in">🎂 Cakes</a>
+      <a href="store/flowers.html" class="category-card" data-aos="zoom-in" data-aos-delay="100">💐 Flowers</a>
+      <a href="store/gadgets.html" class="category-card" data-aos="zoom-in" data-aos-delay="200">📱 Gadgets</a>
+      <a href="store/clothing.html" class="category-card" data-aos="zoom-in" data-aos-delay="300">👕 Clothing</a>
+      <a href="store/shoes.html" class="category-card" data-aos="zoom-in" data-aos-delay="400">👟 Shoes</a>
+      <a href="store/accessories.html" class="category-card" data-aos="zoom-in" data-aos-delay="500">🎁 Accessories</a>
+      <a href="store/baby.html" class="category-card" data-aos="zoom-in" data-aos-delay="600">🍼 Baby Items</a>
+      <a href="store/toys.html" class="category-card" data-aos="zoom-in" data-aos-delay="700">🧸 Toys</a>
+      <a href="store/groceries.html" class="category-card" data-aos="zoom-in" data-aos-delay="800">🛒 Groceries</a>
+      <a href="store/perfumes.html" class="category-card" data-aos="zoom-in" data-aos-delay="900">🌸 Perfumes</a>
+    </div>
+  </section>
+
+  <!-- ⭐ WHY GIFTBRIDGE -->
+  <section class="why-section" id="why">
+    <h2 data-aos="fade-up">Why Choose GiftBridge?</h2>
+    <div class="why-grid">
+      <div class="why-card" data-aos="fade-right"> <h3>Fast Delivery</h3> <p>Timely doorstep delivery anywhere in Nigeria.</p></div>
+      <div class="why-card" data-aos="fade-right" data-aos-delay="100"><h3>Trusted Vendors</h3> <p>Only verified, high-quality vendors accepted.</p></div>
+      <div class="why-card" data-aos="fade-right" data-aos-delay="200"><h3>Safe Payments</h3> <p>Pay securely from anywhere in the world.</p></div>
+      <div class="why-card" data-aos="fade-right" data-aos-delay="300"><h3>24/7 Support</h3> <p>We’re always here for you and your recipient.</p></div>
+    </div>
+  </section>
+
+  <!-- 🧾 HOW IT WORKS -->
+  <section class="how-it-works" id="how" data-aos="fade-up">
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="step" data-aos="fade-up"><h3>1. Choose a Gift</h3><p>Pick from cakes, gadgets, clothes and more.</p></div>
+      <div class="step" data-aos="fade-up" data-aos-delay="150"><h3>2. Enter Recipient Details</h3><p>Tell us who and where we’re delivering to.</p></div>
+      <div class="step" data-aos="fade-up" data-aos-delay="300"><h3>3. We Deliver With Love</h3><p>Your gift arrives with love and a smile!</p></div>
+    </div>
+  </section>
+
+  <!-- ❤️ TESTIMONIALS -->
+  <section class="testimonials" id="testimonials">
+    <h2 data-aos="fade-up">What People Are Saying</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-card" data-aos="fade-left"><p>"I sent a birthday cake to my mom in Lagos from the US. Perfect service!"</p><span>— Mary, Texas</span></div>
+      <div class="testimonial-card" data-aos="fade-left" data-aos-delay="100"><p>"GiftBridge helped me surprise my fiancée — she was thrilled!"</p><span>— Chuka, London</span></div>
+      <div class="testimonial-card" data-aos="fade-left" data-aos-delay="200"><p>"Their delivery is fast and the packaging is amazing. Highly recommend."</p><span>— Amina, Abuja</span></div>
+    </div>
+  </section>
+
+  <!-- 📸 INSTAGRAM PREVIEW -->
+  <section class="instagram-preview" data-aos="fade-up">
+    <h2>From Our Instagram</h2>
+    <div class="insta-grid">
+      <div class="insta-pic">📸</div>
+      <div class="insta-pic">🎁</div>
+      <div class="insta-pic">💐</div>
+    </div>
+  </section>
+
+  <!-- 📬 CONTACT -->
+  <section class="contact" id="contact" data-aos="fade-up">
+    <h2>Contact Us</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- 🔗 FOOTER -->
+  <footer>
+    <p>&copy; 2025 GiftBridge. We bring love to your homes.</p>
+  </footer>
+
+  <!-- AOS Script -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+  </script>
+</body>
+</html>

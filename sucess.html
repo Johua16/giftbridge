@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment Successful – GiftBridge</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo">
+    <a href="index.html">
+      <img src="images/logo.png" alt="GiftBridge Logo" />
+    </a>
+  </div>
+  <nav class="nav-links">
+    <ul>
+      <li><a href="index.html" class="back-home-pill">← Back to Home</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="success-message">
+  <h2>Thank you, <span id="custName">Customer</span>! 🎁</h2>
+  <p>Your payment of ₦<span id="amountPaid">0</span> has been received.</p>
+  <p>We’ll deliver your gift to:</p>
+  <p id="custAddress">Loading...</p>
+  <p class="small-note">A confirmation has been sent to <span id="custEmail">your email</span>.</p>
+</section>
+
+<script>
+  document.getElementById("custName").innerText = localStorage.getItem("orderName") || "Customer";
+  document.getElementById("custEmail").innerText = localStorage.getItem("orderEmail") || "your email";
+  document.getElementById("amountPaid").innerText = localStorage.getItem("orderAmount") || "0";
+  document.getElementById("custAddress").innerText = localStorage.getItem("orderAddress") || "your delivery address";
+</script>
+
+</body>
+</html>

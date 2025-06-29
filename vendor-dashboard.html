@@ -1,0 +1,116 @@
+<!-- vendor-dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vendor Dashboard | GiftBridge</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dashboard-body">
+
+  <!-- NAVBAR -->
+  <nav class="dashboard-nav">
+    <h2>GiftBridge Vendor</h2>
+    <ul>
+      <li><a href="#" data-section="overview" class="tab-link active">Dashboard</a></li>
+      <li><a href="#" data-section="orders" class="tab-link">My Orders</a></li>
+      <li><a href="#" data-section="products" class="tab-link">My Products</a></li>
+      <li><a href="#" data-section="profile" class="tab-link">Profile</a></li>
+    </ul>
+  </nav>
+
+  <!-- DASHBOARD OVERVIEW -->
+  <div id="overview" class="dashboard-section">
+    <section class="dashboard-welcome">
+      <h1>Welcome, Blossom Cakes</h1>
+      <p>Here’s a quick summary of your store today.</p>
+    </section>
+
+    <section class="dashboard-stats">
+      <div class="stat-box">
+        <h3>12</h3>
+        <p>Total Orders</p>
+      </div>
+      <div class="stat-box">
+        <h3>3</h3>
+        <p>Pending Deliveries</p>
+      </div>
+      <div class="stat-box">
+        <h3>₦45,000</h3>
+        <p>Revenue</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- MY ORDERS -->
+  <div id="orders" class="dashboard-section hidden">
+    <section class="dashboard-orders">
+      <h2>Recent Orders</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>Item</th>
+            <th>Recipient</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>#1023</td>
+            <td>Chocolate Cake</td>
+            <td>Grace, Lagos</td>
+            <td>Delivered</td>
+          </tr>
+          <tr>
+            <td>#1024</td>
+            <td>Red Velvet</td>
+            <td>Mike, Abuja</td>
+            <td>Pending</td>
+          </tr>
+          <tr>
+            <td>#1025</td>
+            <td>Fruit Cake</td>
+            <td>Joy, Enugu</td>
+            <td>Shipped</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <!-- MY PRODUCTS -->
+  <div id="products" class="dashboard-section hidden">
+    <section class="upload-product-form">
+      <h2>Upload New Product</h2>
+      <form>
+        <input type="text" placeholder="Product Name" required />
+        <input type="number" placeholder="Price (₦)" required />
+        <input type="file" required />
+        <textarea placeholder="Product Description"></textarea>
+        <button type="submit">Upload</button>
+      </form>
+    </section>
+  </div>
+
+  <!-- PROFILE -->
+  <div id="profile" class="dashboard-section hidden">
+    <section class="vendor-profile">
+      <h2>Your Profile</h2>
+      <p><strong>Business Name:</strong> Blossom Cakes</p>
+      <p><strong>Email:</strong> blossomcakes@gmail.com</p>
+      <p><strong>Instagram:</strong> @blossomcakes</p>
+      <p><strong>Phone:</strong> 0803-000-0000</p>
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>&copy; 2025 GiftBridge by Fendor. All rights reserved.</p>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script src="script.js"></script>
+</body>
+</html>
